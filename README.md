@@ -4,7 +4,7 @@
 
 `oracle-ascii-unload` is an Oracle Pro*C program to efficiently unload data from an Oracle database table into a delimited ASCII text file delimited by control-A (also known as `^A` or `\x01` or `\001`).  It natively supports columns of type DATE, NUMBER, CHAR, VARCHAR2.  It does not currently support TIMESTAMP directly (via `select * from...` )), but it will support a TIMESTAMP column cast to a string like such: `select to_char(ts_column, 'YYYY-MM-DD HH24:MI:SSxFF') ts_column from...`  Thus if the table contains TIMESTAMP column(s), the query used to extract the data will have to explicitly list all the columns and cast TIMESTAMP columns to strings.
 
-Fields are not quoted, so if it is possible that a text field could contain any `^A `values, then a different delimiter value should be chosen (see `oracle-ascii-unload.pc` line 150)
+Fields are not quoted, so if it is possible that a text field could contain any `^A `values, then a different delimiter value should be chosen (see `oracle-ascii-unload.pc` line [177](https://github.com/grahn/oracle-ascii-unload/blob/master/oracle-ascii-unload.pc#L177))
 
 Tested on Oracle 11.2.0 only but should work on any version.
 
